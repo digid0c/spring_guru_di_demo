@@ -3,3 +3,11 @@ guru:
     username: Joe
     password: jmspass
     url: jmsurl
+--- #Document separator
+spring:
+  profiles: en
+guru:
+  jms:
+    username: Joe-en
+    password: jmspass-en
+    url: jmsurl-en
