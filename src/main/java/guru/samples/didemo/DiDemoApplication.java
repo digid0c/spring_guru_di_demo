@@ -4,6 +4,7 @@ import guru.samples.didemo.controller.ConstructorInjectedController;
 import guru.samples.didemo.controller.MyController;
 import guru.samples.didemo.controller.PropertyInjectedController;
 import guru.samples.didemo.controller.SetterInjectedController;
+import guru.samples.didemo.datasource.FakeDataSource;
 import guru.samples.external.ExternalComponent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,6 +26,11 @@ public class DiDemoApplication {
 
         ExternalComponent externalComponent = context.getBean(ExternalComponent.class);
         externalComponent.sayHello();
+
+        FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class);
+        System.out.println(fakeDataSource.getUser());
+        System.out.println(fakeDataSource.getPassword());
+        System.out.println(fakeDataSource.getUrl());
     }
 
 }
