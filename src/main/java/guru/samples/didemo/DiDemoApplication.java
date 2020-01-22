@@ -5,6 +5,7 @@ import guru.samples.didemo.controller.MyController;
 import guru.samples.didemo.controller.PropertyInjectedController;
 import guru.samples.didemo.controller.SetterInjectedController;
 import guru.samples.didemo.datasource.FakeDataSource;
+import guru.samples.didemo.datasource.FakeJmsBroker;
 import guru.samples.external.ExternalComponent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -35,6 +36,11 @@ public class DiDemoApplication {
 
         Environment environment = context.getEnvironment();
         System.out.println(environment.getProperty("ANY_OS_ENV_PROPERTY", "DEFAULT_VALUE"));
+
+        FakeJmsBroker fakeJmsBroker = context.getBean(FakeJmsBroker.class);
+        System.out.println(fakeJmsBroker.getUser());
+        System.out.println(fakeJmsBroker.getPassword());
+        System.out.println(fakeJmsBroker.getUrl());
     }
 
 }
