@@ -10,6 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.core.env.Environment;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"guru.samples.external", "guru.samples.didemo"})
@@ -31,6 +32,9 @@ public class DiDemoApplication {
         System.out.println(fakeDataSource.getUser());
         System.out.println(fakeDataSource.getPassword());
         System.out.println(fakeDataSource.getUrl());
+
+        Environment environment = context.getEnvironment();
+        System.out.println(environment.getProperty("ANY_OS_ENV_PROPERTY", "DEFAULT_VALUE"));
     }
 
 }
